@@ -26,14 +26,25 @@ public class ConnectionPanelPatches
                     Button component3 = __instance.m_playerListElements[index].transform.Find("KickButton")
                         .GetComponent<Button>();
                     component1.text = playerInfo.m_name;
-                    if (HideMePlugin.isAdmin && !HideMePlugin.HideForMeToo.Value)
+                    if (HideMePlugin.isAdmin && !HideMePlugin.HideMeCompletely.Value)
                     {
-                        component2.text = playerInfo.m_host;
+                        if (HideMePlugin.isAdmin && !HideMePlugin.HideForMeToo.Value)
+                        {
+                            component2.text = playerInfo.m_host;
+                        }
+                        else
+                        {
+                            component2.text = string.Empty;
+                        }
                     }
                     else
                     {
+                        component1.text = string.Empty;
                         component2.text = string.Empty;
                     }
+                    
+                    
+                    
 
                     component3.gameObject.SetActive(false);
                 }

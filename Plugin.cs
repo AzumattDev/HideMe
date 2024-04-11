@@ -13,7 +13,7 @@ namespace HideMe
     public class HideMePlugin : BaseUnityPlugin
     {
         internal const string ModName = "HideMe";
-        internal const string ModVersion = "1.0.0";
+        internal const string ModVersion = "1.0.2";
         internal const string Author = "Azumatt";
         private const string ModGUID = Author + "." + ModName;
         private static string ConfigFileName = ModGUID + ".cfg";
@@ -35,6 +35,9 @@ namespace HideMe
 
             HideForMeToo = config("1 - General", "Hide My SteamID Also", true,
                 "Hides your SteamID from the F2 (ConnectPanel) window as well, even if you are admin. Meant for people who stream, roleplay, or just don't want it to show in content where they share their screen.",
+                false);
+            HideMeCompletely = config("1 - General", "Hide My Info Completely", false,
+                "Hides your SteamID & Player Name from the F2 (ConnectPanel) window completely, even if you are admin. Meant for people who stream, roleplay, or just don't want it to show in content where they share their screen.",
                 false);
 
 
@@ -77,6 +80,7 @@ namespace HideMe
 
         #region ConfigOptions
         internal static ConfigEntry<bool> HideForMeToo = null!;
+        internal static ConfigEntry<bool> HideMeCompletely = null!;
 
         private ConfigEntry<T> config<T>(string group, string name, T value, ConfigDescription description,
             bool synchronizedSetting = true)
@@ -116,7 +120,7 @@ namespace HideMe
             public override bool IsValid(object value) => true;
 
             public override string ToDescriptionString() =>
-                "# Acceptable values: " + string.Join(", ", KeyboardShortcut.AllKeyCodes);
+                "# Acceptable values: " + string.Join(", ", UnityInput.Current.SupportedKeyCodes);
         }
 
         #endregion

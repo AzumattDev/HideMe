@@ -1,4 +1,5 @@
 ### Hides your SteamID from the F2 (ConnectPanel) window as well, even if you are admin. Meant for people who stream, roleplay, or just don't want it to show in content where they share their screen.
+`Please note` This does not hide your information from other players. Just hides it from the window so you can stream without others knowing your information.
 
 `Install on all clients and the server. Client and Server needed (so it can periodically check admin)`
 
